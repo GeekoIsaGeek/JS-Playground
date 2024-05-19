@@ -12,6 +12,9 @@ class Employees {
 	}
 
 	addEmployee(employee: IEmployee) {
+		if (this.validateIfExists(employee?.id)) {
+			throw new Error('Employee already exists');
+		}
 		this.employees.push(employee);
 	}
 
@@ -20,7 +23,15 @@ class Employees {
 	}
 
 	removeEmployee(id: number) {
-		this.employees = this.employees.filter((employee) => employee.id !== id);
+		if (this.validateIfExists(id)) {
+			this.employees = this.employees.filter((employee) => employee.id !== id);
+		} else {
+			throw new Error('Employee not found');
+		}
+	}
+
+	private validateIfExists(id: number) {
+		return !!this.employees?.find((employee) => employee.id === id);
 	}
 }
 
@@ -87,14 +98,4 @@ class ContractEmployee extends Employee {
 	}
 }
 
-const employees = new Employees();
-
-[
-	new FullTimeEmployee('Georgius Vidua', 1, 1200, 100),
-	new PartTimeEmployee('Optimus Prime', 17, 0, 40, 55),
-	new ContractEmployee('Otto Octavius', 27, 0, 12, 100000),
-].forEach((employee) => employees.addEmployee(employee));
-
-console.info(employees, employees.getEmployee(1));
-employees.removeEmployee(17);
-console.info('\n ~/ Updated employees /~\n\n', employees);
+export { Employees, Employee, FullTimeEmployee, PartTimeEmployee, ContractEmployee };
