@@ -12,7 +12,7 @@
 				console.info(`${number} Converted to binary -> 0b${number.toString(2)}`);
 				break;
 			case 8:
-				console.info(`${number}Converted to octal -> 0o${number.toString(8)}`);
+				console.info(`${number} Converted to octal -> 0o${number.toString(8)}`);
 				break;
 			case 16:
 				console.info(`${number} Converted to hexadecimal -> 0x${number.toString(16)}`);
