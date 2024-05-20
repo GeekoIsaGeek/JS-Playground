@@ -1,5 +1,3 @@
-import { log } from '../Utils/logger.mjs';
-
 // *** Dummy Data
 const users = ['u1', 'u2', 'u3', 'u4', 'u2', 'u5', 'u1'];
 
@@ -63,12 +61,16 @@ const manageActiveUsers = ({ user, action }) => {
 	else return `Active users: ${[...activeUsers]}; Count: ${activeUsers.size}`;
 };
 
-log([
-	manageActiveUsers({ user: 'u1', action: 'add' }),
-	manageActiveUsers({ user: 'u2', action: 'add' }),
-	manageActiveUsers({ user: 'u3', action: 'add' }),
-	manageActiveUsers({ user: 'u1', action: 'isActive' }),
-	manageActiveUsers({ user: 'u1', action: 'delete' }),
-	manageActiveUsers({ action: 'clear' }),
-	manageActiveUsers({}),
-]);
+console.log(
+	[
+		manageActiveUsers({ user: 'u1', action: 'add' }),
+		manageActiveUsers({ user: 'u2', action: 'add' }),
+		manageActiveUsers({ user: 'u3', action: 'add' }),
+		manageActiveUsers({ user: 'u1', action: 'isActive' }),
+		manageActiveUsers({ user: 'u1', action: 'delete' }),
+		manageActiveUsers({ action: 'clear' }),
+		manageActiveUsers({}),
+	]
+		.filter((log) => log)
+		.join('\n')
+);

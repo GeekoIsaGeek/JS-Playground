@@ -1,13 +1,5 @@
 const inventory = new Map();
 
-const products = [
-	{ id: 'p1', name: 'Laptop', category: 'Electronics', quantity: 10 },
-	{ id: 'p2', name: 'Phone', category: 'Electronics', quantity: 25 },
-	{ id: 'p3', name: 'Shoes', category: 'Apparel', quantity: 50 },
-	{ id: 'p4', name: 'Jeans', category: 'Apparel', quantity: 30 },
-	{ id: 'p5', name: 'Blender', category: 'Home Appliances', quantity: 15 },
-];
-
 const addNewProduct = (product) => {
 	if (Array.isArray(product)) {
 		product.forEach((item) => inventory.set(item.id, item));
@@ -52,7 +44,15 @@ const removeDiscontinuedProducts = () => {
 	});
 };
 
-addNewProduct(products);
+// tests
+addNewProduct([
+	{ id: 'p1', name: 'Laptop', category: 'Electronics', quantity: 10 },
+	{ id: 'p2', name: 'Phone', category: 'Electronics', quantity: 25 },
+	{ id: 'p3', name: 'Shoes', category: 'Apparel', quantity: 50 },
+	{ id: 'p4', name: 'Jeans', category: 'Apparel', quantity: 30 },
+	{ id: 'p5', name: 'Blender', category: 'Home Appliances', quantity: 15 },
+]);
+
 updateQuantity('p2', 0);
 
 console.log(categorizeProducts(), '\n\n');
