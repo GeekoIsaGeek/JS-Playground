@@ -1,4 +1,4 @@
-import { Employees, FullTimeEmployee, PartTimeEmployee, ContractEmployee } from './ManageEmployees';
+import { Employees, FullTimeEmployee, PartTimeEmployee, ContractEmployee } from './Employees';
 
 const employees = new Employees();
 
@@ -8,6 +8,6 @@ const employees = new Employees();
 	new ContractEmployee('Otto Octavius', 27, 0, 12, 100000),
 ].forEach((employee) => employees.addEmployee(employee));
 
-console.info(employees, employees.getEmployee(1));
+console.log(employees, employees.getEmployee(1));
 employees.removeEmployee(17);
-console.info('\n ~/ Updated employees /~\n\n', employees);
+console.log('\n ~/ Updated employees /~\n\n', employees);

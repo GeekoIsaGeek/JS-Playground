@@ -7,8 +7,8 @@ interface IEmployee {
 class Employees {
 	protected employees: IEmployee[];
 
-	constructor() {
-		this.employees = [];
+	constructor(employees: IEmployee[] = []) {
+		this.employees = employees;
 	}
 
 	addEmployee(employee: IEmployee) {
