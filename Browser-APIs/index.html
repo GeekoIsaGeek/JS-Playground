@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Browser APIs</title>
+	</head>
+	<body>
+		<form>
+			<submit-button>Submit</submit-button>
+		</form>
+		<script>
+			document.querySelector('submit-button').addEventListener('submission', () => console.log('yay'));
+		</script>
+		<script src="./Web-Components/SubmitButton.js" type="module"></script>
+	</body>
+</html>
